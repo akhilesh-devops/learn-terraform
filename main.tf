@@ -1,3 +1,7 @@
-output "test" {
-  value = "hello world"
+output "message" {
+  value = var.test
+}
+
+variable "test" {
+  default = "Helo world"
 }
