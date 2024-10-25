@@ -17,34 +17,3 @@ resource "aws_route53_record" "frontend" {
   ttl     = 30
   records = [aws_instance.frontend.private_ip]
 }
-
-components = {
-  main = {
-    frontend = {
-      Name = "frontend-dev"
-      instance_type = "t2.micro"
-    },
-    mongodb = {
-      Name = "mongodb-dev"
-      instance_type = "t2.micro"
-    },
-    catalogue = {
-      Name = "catalogue-dev"
-      instance_type = "t2.micro"
-    },
-    redis = {
-      Name = "redis-dev"
-      instance_type = "t2.micro"
-    },
-    user = {
-      Name = "user-dev"
-      instance_type = "t2.micro"
-    },
-    cart = {
-      Name = "cart-dev"
-      instance_type = "t2.micro"
-    }
-  }
-}
-
-variable "components" {}
