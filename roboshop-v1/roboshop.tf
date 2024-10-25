@@ -1,4 +1,4 @@
-resource "aws_instance" "frontend" {
+resource "aws_instance" "instance" {
   for_each = var.components
   ami           = "ami-0b4f379183e5706b9"
   instance_type = each.value["instance_type"]
@@ -15,5 +15,5 @@ resource "aws_route53_record" "frontend" {
   name    = "${each.value["Name"]}.vinithaws.online"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.frontend.private_ip]
+  records = [lookup(lookup(aws_instance.instance, each.key, null), "private_ip", null)]
 }
