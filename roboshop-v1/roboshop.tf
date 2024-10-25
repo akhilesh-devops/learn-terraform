@@ -37,3 +37,11 @@ resource "aws_instance" "redis" {
     Name = "redis"
   }
 }
+
+resource "aws_route53_record" "frontend" {
+  zone_id = Z0345275C3S6UDSOR4CU
+  name    = "frontend-dev.vinithaws.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.frontend.private_ip]
+}
