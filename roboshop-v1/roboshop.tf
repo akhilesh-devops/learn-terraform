@@ -1,7 +1,7 @@
 resource "aws_instance" "frontend" {
   for_each = var.components
   ami           = "ami-0b4f379183e5706b9"
-  instance_type = "t2.micro"
+  instance_type = each.value["instance_type"]
   vpc_security_group_ids = [ "sg-0ad8ec6873fafd140" ]
 
   tags = {
