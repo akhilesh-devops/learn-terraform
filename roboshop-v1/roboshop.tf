@@ -5,14 +5,14 @@ resource "aws_instance" "instance" {
   vpc_security_group_ids = [ "sg-0ad8ec6873fafd140" ]
 
   tags = {
-    Name = each.value["Name"]
+    Name = each.value["name"]
   }
 }
 
 resource "aws_route53_record" "frontend" {
   for_each = var.components
   zone_id = "Z0345275C3S6UDSOR4CU"
-  name    = "${each.value["Name"]}.vinithaws.online"
+  name    = "${each.value["name"]}.vinithaws.online"
   type    = "A"
   ttl     = 30
   records = [lookup(lookup(aws_instance.instance, each.key, null), "private_ip", null)]

@@ -1,27 +1,27 @@
 components = {
   main = {
     frontend = {
-      Name = "frontend-dev"
+      name = "frontend-dev"
       instance_type = "t2.micro"
     },
     mongodb = {
-      Name = "mongodb-dev"
+      name = "mongodb-dev"
       instance_type = "t2.micro"
     },
     catalogue = {
-      Name = "catalogue-dev"
+      name = "catalogue-dev"
       instance_type = "t2.micro"
     },
     redis = {
-      Name = "redis-dev"
+      name = "redis-dev"
       instance_type = "t2.micro"
     },
     user = {
-      Name = "user-dev"
+      name = "user-dev"
       instance_type = "t2.micro"
     },
     cart = {
-      Name = "cart-dev"
+      name = "cart-dev"
       instance_type = "t2.micro"
     }
   }
