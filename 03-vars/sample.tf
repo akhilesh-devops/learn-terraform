@@ -35,6 +35,10 @@ variable "fruit_stock" {
   }
 }
 
-output "message-3" {
-  value = ""
+output "apple_stock" {
+  value = var.fruit_stock["apple"]
+}
+
+output "banana_stock" {
+  value = var.fruit_stock["banana"]
 }
