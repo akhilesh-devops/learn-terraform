@@ -52,10 +52,12 @@ variable "fruit_message" {
     apple = {
       quantity = 100
       price = 20
+      for_sale = true
     },
     banana = {
       quantity = 250
       price = 5
+      for_sale = false
     }
   }
 }
