@@ -63,3 +63,7 @@ variable "fruit_message" {
 output "apple_price" {
   value = var.fruit_message["apple"].price
 }
+
+output "banana_price" {
+  value = var.fruit_message["banana"].price
+}
