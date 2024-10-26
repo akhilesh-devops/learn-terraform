@@ -4,7 +4,7 @@ variable "fruit_name" {
   default = "apple"
 }
 
-output "message-1" {
+output "fruit_name" {
   value = var.fruit_name
 }
 
@@ -14,6 +14,23 @@ variable "fruit_list" {
   default = ["apple", "banana"]
 }
 
-output "message-2" {
-  value = var.fruit_list
+output "first_fruit" {
+  value = var.fruit_list[0]
 }
+
+output "second_fruit" {
+  value = var.fruit_list[1]
+}
+
+# ## Map variable
+#
+# variable "fruit_stock" {
+#   default = {
+#     apple  = 100
+#     banana = 200
+#   }
+# }
+#
+# output "message-3" {
+#   value = ""
+# }
