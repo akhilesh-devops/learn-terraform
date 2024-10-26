@@ -67,3 +67,18 @@ output "apple_price" {
 output "banana_price" {
   value = var.fruit_message["banana"].price
 }
+
+
+## variable Datatypes
+
+variable "data_types" {
+  default = {
+    fruit_name = "apple"
+    quantity   = 100
+    for_sale   = true
+  }
+}
+
+output "fruit_message" {
+  value = "Fruit Name - ${var.data_types["fruit_name"]}, Quantity - ${var.data_types["quantity"]}"
+}
