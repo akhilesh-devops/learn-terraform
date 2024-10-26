@@ -84,3 +84,7 @@ variable "data_types" {
 output "fruit_message" {
   value = "Fruit Name - ${var.data_types["fruit_name"]}, Quantity - ${var.data_types["quantity"]}"
 }
+
+output "fruit_details_banana" {
+  value = "Fruit Quantity = ${var.fruit_message["banana"].quantity}, Fruit Price = ${var.fruit_message["banana"].price}, Fruit status = ${var.fruit_message["banana"].for_sale}"
+}
