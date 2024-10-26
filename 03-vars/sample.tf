@@ -42,3 +42,24 @@ output "apple_stock" {
 output "banana_stock" {
   value = var.fruit_stock["banana"]
 }
+
+
+
+## Dictionary variable
+
+variable "fruit_message" {
+  default = {
+    apple = {
+      quantity = 100
+      price = 20
+    },
+    banana = {
+      quantity = 250
+      price = 5
+    }
+  }
+}
+
+output "apple_price" {
+  value = var.fruit_message["apple"].price
+}
