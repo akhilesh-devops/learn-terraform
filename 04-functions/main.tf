@@ -15,7 +15,7 @@ variable "fruit_details" {
     }
     banana = {
       price = 20
-      stock = 5
+      # stock = 5
     }
   }
 }
