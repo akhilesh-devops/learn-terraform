@@ -1,11 +1,11 @@
 resource "aws_instance" "instance" {
   for_each      = var.components
   ami           = var.ami
-  instance_type = var.instance_type
+  instance_type = lookup(each.value, "type", null)
   vpc_security_group_ids = var.vpc_security_group_ids
 
   tags = {
-    Name = lookup(var.components, each.key, null)
+    Name = each.key
   }
 }
 
@@ -21,9 +21,6 @@ variable "ami" {
   default = "ami-0b4f379183e5706b9"
 }
 
-variable "instance_type" {
-  default = "t2.micro"
-}
 
 variable "vpc_security_group_ids" {
   default = ["sg-0ad8ec6873fafd140"]
@@ -35,15 +32,15 @@ variable "zone_id" {
 
 variable "components" {
   default = {
-    frontend = {}
-    mongodb = {}
-    catalogue = {}
-    redis = {}
-    user = {}
-    cart = {}
-    mysql = {}
-    shipping = {}
-    rabbitmq = {}
-    payment = {}
+    frontend = { name = "frontend", type = "t2.micro" }
+    mongodb = { name = "mongodb", type = "t2.micro" }
+    catalogue = { name = "catalogue", type = "t2.micro" }
+    redis = { name = "redis", type = "t2.micro" }
+    user = { name = "user", type = "t2.micro" }
+    cart = { name = "cart", type = "t2.micro" }
+    mysql = { name = "mysql", type = "t2.micro" }
+    shipping = { name = "shipping", type = "t2.micro" }
+    rabbitmq = { name = "rabbitmq", type = "t2.micro" }
+    payment = { name = "payment", type = "t2.micro" }
   }
 }
