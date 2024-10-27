@@ -10,7 +10,7 @@ output "fruits" {
 variable "fruit_details" {
   default = {
     apple = {
-      price = 100
+      # price = 100
       stock = 10
     }
     banana = {
