@@ -25,5 +25,6 @@ output "orange_price" {
 }
 
 output "apple_price" {
-  value = try(var.fruit_details["apple"].price, "null")
+  # value = try(var.fruit_details["apple"].price, "null")
+  value = lookup(var.fruit_details["apple"], "price", "null")
 }
