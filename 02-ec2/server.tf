@@ -5,7 +5,7 @@ resource "aws_instance" "instance" {
   vpc_security_group_ids = var.vpc_security_group_ids
 
   tags = {
-    Name = lookup(each.key, "null")
+    Name = lookup(var.components, each.key, null)
   }
 }
 
