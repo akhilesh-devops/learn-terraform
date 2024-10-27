@@ -13,6 +13,10 @@ variable "fruit_details" {
       price = 100
       stock = 10
     }
+    banana = {
+      price = 20
+      stock = 5
+    }
   }
 }
 
