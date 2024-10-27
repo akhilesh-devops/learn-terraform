@@ -6,3 +6,16 @@ output "fruits" {
   # value = var.fruits[4]
   value = element(var.fruits, 10)
 }
+
+variable "fruit_details" {
+  default = {
+    apple = {
+      price = 100
+      stock = 10
+    }
+  }
+}
+
+output "banana_price" {
+  value = try(var.fruit_details["banana"].price, 0)
+}
