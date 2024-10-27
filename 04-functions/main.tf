@@ -23,3 +23,7 @@ variable "fruit_details" {
 output "banana_price" {
   value = try(var.fruit_details["banana"].price, 0)
 }
+
+output "banana_stock" {
+  value = try(var.fruit_details["banana"].stock, "out of stock")
+}
