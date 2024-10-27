@@ -1,7 +1,9 @@
 variable "components" {
   default = {
     frontend = { name = "frontend_sg" }
+    cart     = { name = "cart_sg" }
     mongodb  = { name = "mongodb_sg" }
+    redis    = { name = "redis_sg"}
     catalogue = { name = "catalogue_sg" }
   }
 }
