@@ -24,6 +24,6 @@ output "orange_price" {
   value = try(var.fruit_details["orange"].price, "null")
 }
 
-output "banana_stock" {
-  value = try(var.fruit_details["banana"].stock, "out of stock")
+output "apple_price" {
+  value = try(var.fruit_details["apple"].price, "null")
 }
