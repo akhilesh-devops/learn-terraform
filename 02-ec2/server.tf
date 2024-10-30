@@ -15,7 +15,7 @@ resource "aws_route53_record" "record" {
   name          = "${each.key}.vinithaws.online"
   type          = "A"
   ttl           = 30
-  records       = [lookup(lookup(aws_instance, "instance", null), "private_ip", null)]
+  records       = [lookup(lookup(aws_instance.instance, each.key, null), "private_ip", null)]
 }
 
 variable "ami" {
