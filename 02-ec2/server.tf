@@ -9,13 +9,14 @@ resource "aws_instance" "instance" {
   }
 }
 
-# resource "aws_route53_record" "record" {
-#   zone_id = var.zone_id
-#   name    = "frontend.vinithaws.online"
-#   type    = "A"
-#   ttl     = 30
-#   records = [aws_instance.instance.private_ip]
-# }
+resource "aws_route53_record" "record" {
+  for_each      = var.components
+  zone_id = var.zone_id
+  name    = "${each.key}.vinithaws.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.instance.private_ip]
+}
 
 variable "ami" {
   default = "ami-0b4f379183e5706b9"
