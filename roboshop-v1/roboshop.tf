@@ -8,7 +8,7 @@ resource "aws_instance" "instance" {
   }
 }
 
-resource "aws_route53_record" "www" {
+resource "aws_route53_record" "record" {
   zone_id = "Z0345275C3S6UDSOR4CU"
   name    = "frontend.akhildevops.online"
   type    = "A"
