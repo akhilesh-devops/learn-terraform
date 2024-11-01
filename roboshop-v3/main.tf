@@ -4,7 +4,7 @@ module "components" {
   source = "./module"
   vpc_security_group_ids = var.vpc_security_group_ids
   zone_id                = var.zone_id
-  name                   = each.value["name"]
-  instance_type          = each.value["instance_type"]
+  name                   = lookup(each.value, "name", null)
+  instance_type          = lookup(each.value, "instance_type", null)
 
 }
