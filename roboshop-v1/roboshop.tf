@@ -4,6 +4,14 @@ resource "aws_instance" "instance" {
   instance_type          = "t2.micro"
 
   tags = {
-    Name = "Frontend"
+    Name = "frontend"
   }
+}
+
+resource "aws_route53_record" "www" {
+  zone_id = "Z0345275C3S6UDSOR4CU"
+  name    = "frontend.akhildevops.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.instance.id]
 }
