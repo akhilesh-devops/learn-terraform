@@ -9,21 +9,15 @@ resource "aws_instance" "instances" {
   }
 }
 
-output "instances" {
-  value = aws_instance.instances
+
+resource "aws_route53_record" "frontend" {
+  for_each   = var.components
+  zone_id    = var.zone_id
+  name       = "${lookup(each.value, "name", null)}.akhildevops.online"
+  type       = "A"
+  ttl        = 30
+  records    = lookup(lookup(aws_instance.instances, each.key, null), "private_ip", null)
 }
-
-
-
-
-# resource "aws_route53_record" "frontend" {
-#   for_each   = var.components
-#   zone_id    = var.zone_id
-#   name       = "${lookup(each.value, "name", null)}.akhildevops.online"
-#   type       = "A"
-#   ttl        = 30
-#   records    = lookup(lookup(aws_instance.instances, each.key, null), "private_ip", null)
-# }
 
 
 
