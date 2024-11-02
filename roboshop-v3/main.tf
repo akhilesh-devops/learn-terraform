@@ -10,3 +10,5 @@ module "components" {
 }
 
 
+vpc_security_group_ids = ["sg-0ad8ec6873fafd140"]
+
