@@ -7,7 +7,7 @@ terraform {
 }
 
 variable "test" {
-  default = "hello world"
+  default = "Hello Good Morning"
 }
 
 output "test" {
