@@ -5,3 +5,11 @@ terraform {
     region = "us-east-1"
   }
 }
+
+variable "test" {
+  default = "hello world"
+}
+
+output "test" {
+  value = var.test
+}
