@@ -1,4 +1,4 @@
-variable "security_groups" {
+variable "vpc_security_group_ids" {
   default = ["sg-0ad8ec6873fafd140"]
 }
 
