@@ -5,12 +5,13 @@ data "aws_ami" "ami" {
 }
 
 resource "aws_instance" "instance" {
+  count                   = length(var.name)
   vpc_security_group_ids  = var.vpc_security_group_ids
   instance_type           = var.instance_type
   ami                     = data.aws_ami.ami.id
 
   tags = {
-    Name = var.name
+    Name = element(var.name, count.index)
   }
 }
 
