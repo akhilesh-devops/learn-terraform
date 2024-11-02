@@ -8,7 +8,7 @@ module "test" {
 
 
 variable "name" {
-  default = ["frontend"]
+  default = "frontend"
 }
 variable "instance_type" {
   default = "t2.micro"
