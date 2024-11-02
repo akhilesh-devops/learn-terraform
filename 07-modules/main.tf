@@ -8,7 +8,7 @@ module "test" {
 
 
 variable "name" {
-  default = ["frontend", "mongodb"]
+  default = ["frontend-dev", "mongodb-dev", "catalogue-dev"]
 }
 variable "instance_type" {
   default = "t2.micro"
