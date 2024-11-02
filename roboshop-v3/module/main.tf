@@ -17,13 +17,17 @@ resource "aws_route53_record" "record" {
 }
 
 resource "null_resource" "ansible" {
-  depends_on = [aws_route53_record.record]
+
+  depends_on = [
+    aws_route53_record.record
+  ]
 
   provisioner "local-exec" {
     command = <<EOF
 cd /home/centos/roboshop-ansible
 git pull
-ansible-playbook -i ${var.name}-dev.vinithaws.online, main.yml -e ansible_user=centos -e ansible_password=DevOps321 -e component = ${var.name}
+sleep 30
+ansible-playbook -i ${var.name}-dev.vinithaws.online, main.yml -e ansible_user=centos -e ansible_password=DevOps321 -e component=${var.name}
 EOF
   }
 }
