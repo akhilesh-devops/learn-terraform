@@ -23,27 +23,20 @@ output "fruit_name-2" {
   value = var.fruits[1]
 }
 
-#
-#
-# ## Map variable
-#
-# variable "fruit_stock" {
-#   default = {
-#     apple  = 100
-#     banana = 200
-#   }
-# }
-#
-# output "apple_stock" {
-#   value = var.fruit_stock["apple"]
-# }
-#
-# output "banana_stock" {
-#   value = var.fruit_stock["banana"]
-# }
-#
-#
-#
+
+
+## Map variable
+
+variable "fruit_details" {
+  default = {
+    Fruit_name = "apple", Quantity = 100, Price = 20
+  }
+}
+
+output "fruit_price" {
+  value = var.fruit_details["Price"]
+}
+
 # ## Dictionary variable
 #
 # variable "fruit_message" {
