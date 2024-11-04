@@ -7,3 +7,11 @@ resource "aws_instance" "instances" {
     Name = "frontend"
   }
 }
+
+resource "aws_route53_record" "www" {
+  zone_id = "Z0345275C3S6UDSOR4CU"
+  name    = "frontend.vinithaws.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.instances.private_ip]
+}
