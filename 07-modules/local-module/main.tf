@@ -9,7 +9,12 @@ resource "aws_instance" "instances" {
   vpc_security_group_ids  = var.vpc_security_group_ids
   instance_type           = var.instance_type
 
+  tags = {
+    Name = var.name
+  }
+
 }
 
 variable "instance_type" {}
 variable "vpc_security_group_ids" {}
+variable "name" {}
