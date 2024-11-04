@@ -36,3 +36,7 @@ output "hp_processor" {
 output "del_processor" {
   value = try(var.laptops["del"].processor)
 }
+
+output "laptop_message" {
+  value      = "hp_processor = ${var.laptops["hp"].processor}, del_processor = ${var.laptops["del"].processor}"
+}
