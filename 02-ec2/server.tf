@@ -51,5 +51,5 @@ resource "aws_instance" "frontend" {
 }
 
 output "instance" {
-  value = aws_instance.frontend
+  value = aws_instance.frontend.ami
 }
