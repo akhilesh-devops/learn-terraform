@@ -1,17 +1,3 @@
-
-# output "aws_instance" {
-#   value = aws_instance.instance
-# }
-#
-# resource "aws_route53_record" "record" {
-#   for_each      = var.components
-#   zone_id       = var.zone_id
-#   name          = "${lookup(each.value, "name", null)}.vinithaws.online"
-#   type          = "A"
-#   ttl           = 30
-#   records       = [lookup(lookup(aws_instance.instance, each.key, null), "private_ip", null)]
-# }
-#
 # variable "ami" {
 #   default = "ami-0b4f379183e5706b9"
 # }
@@ -50,6 +36,10 @@ resource "aws_instance" "frontend" {
   }
 }
 
-output "ami" {
-  value = aws_instance.frontend.ami
+resource "aws_route53_record" "record" {
+  zone_id       = "Z0345275C3S6UDSOR4CU"
+  name          = "frontend.vinithaws.online"
+  type          = "A"
+  ttl           = 30
+  records       = [aws_instance.frontend.private_ip]
 }
