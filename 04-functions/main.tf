@@ -30,11 +30,13 @@ variable "laptops" {
 }
 
 output "hp_processor" {
-  value = try(var.laptops["hp"].processor)
+  # value = try(var.laptops["hp"].processor)
+  value = lookup(var.laptops["hp"], "processor")
 }
 
 output "del_processor" {
-  value = try(var.laptops["del"].processor)
+  # value = try(var.laptops["del"].processor)
+  value = lookup(var.laptops["del"], "processor")
 }
 
 output "laptop_message" {
