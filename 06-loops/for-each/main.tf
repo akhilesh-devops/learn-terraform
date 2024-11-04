@@ -1,27 +1,18 @@
 variable "components" {
-  default = {
-    frontend = {
-      name          = "frontend-dev"
-      instance_type = "t2.micro"
-    }
-    mongodb = {
-      name          = "mongodb-dev"
-      instance_type = "t2.micro"
-    }
-    catalogue = {
-      name          = "catalogue-dev"
-      instance_type = "t2.micro"
-    }
-  }
+  default = ["frontend", "catalogue", "redis"]
 }
 
 resource "aws_instance" "instances" {
-  for_each               = var.components
+  count                  = length(var.components)
   ami                    = "ami-0b4f379183e5706b9"
   vpc_security_group_ids = ["sg-0ad8ec6873fafd140"]
-  instance_type          = lookup(each.value, "instance_type", null)
+  instance_type          = var.instance_type
 
   tags = {
-    Name = lookup(each.value, "name", null)
+    Name = element(var.components, count.index)
   }
 }
+
+variable "instance_type" {}
+
+instance_type = "t2.micro"
