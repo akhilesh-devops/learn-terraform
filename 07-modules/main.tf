@@ -9,9 +9,8 @@ module "components" {
 
 
 
-variable "instance_type" {
-  default = "t2.micro"
-}
+variable "instance_type" {}
+
 variable "vpc_security_group_ids" {
   default = ["sg-0ad8ec6873fafd140"]
 }
@@ -23,3 +22,4 @@ variable "components" {
   }
 }
 
+instance_type = "t2.micro"
