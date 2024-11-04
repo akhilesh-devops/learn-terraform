@@ -22,7 +22,7 @@ resource "aws_instance" "instances" {
   instance_type          = lookup(each.value, "instance_type", null)
 
   tags = {
-    Name = lookup(each.value, "name", null)
+    Name = each.key
   }
 }
 
