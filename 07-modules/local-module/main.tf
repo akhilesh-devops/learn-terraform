@@ -5,16 +5,11 @@ data "aws_ami" "ami" {
 }
 
 resource "aws_instance" "instances" {
-  ami                     = var.ami
+  ami                     = data.aws_ami.ami
   vpc_security_group_ids  = var.vpc_security_group_ids
   instance_type           = var.instance_type
 
-  tags = {
-    Name = var.name
-  }
 }
 
 variable "instance_type" {}
-variable "ami" {}
 variable "vpc_security_group_ids" {}
-variable "name" {}
