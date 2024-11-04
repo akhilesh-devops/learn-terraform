@@ -13,6 +13,10 @@ resource "aws_instance" "instance" {
   }
 }
 
+output "components" {
+  value = element(var.components, 15)
+}
+
 
 variable "laptops" {
   default = {
