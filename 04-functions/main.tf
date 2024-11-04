@@ -2,9 +2,17 @@ variable "fruits" {
   default = ["apple", "orange", "banana"]
 }
 
-output "fruits" {
-  value = element(var.fruits, 153)
+resource "aws_instance" "instance" {
+  count = length(var.fruits)
+  ami = "ami-0b4f379183e5706b9"
+  vpc_security_group_ids = ["sg-0ad8ec6873fafd140"]
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = element(var.fruits, count.index)
+  }
 }
+
 
 # variable "fruit_details" {
 #   default = {
