@@ -37,32 +37,32 @@ output "fruit_details" {
   value = "Fruit_Name = ${var.fruit_details["Fruit_name"]}, Fruit_Quantity = ${var.fruit_details["Quantity"]}, Fruit_price = ${var.fruit_details["Price"]}"
 }
 
-# ## Dictionary variable
-#
-# variable "fruit_message" {
-#   default = {
-#     apple = {
-#       quantity = 100
-#       price = 20
-#       for_sale = true
-#     },
-#     banana = {
-#       quantity = 250
-#       price = 5
-#       for_sale = false
-#     }
-#   }
-# }
-#
-# output "apple_price" {
-#   value = var.fruit_message["apple"].price
-# }
-#
-# output "banana_price" {
-#   value = var.fruit_message["banana"].price
-# }
-#
-#
+## Dictionary variable
+
+variable "fruit_message" {
+  default = {
+    apple = {
+      quantity = 100
+      price = 20
+      for_sale = true
+    },
+    banana = {
+      quantity = 250
+      price = 5
+      for_sale = false
+    }
+  }
+}
+
+output "apple_price" {
+  value = var.fruit_message["apple"].price
+}
+
+output "banana_price" {
+  value = var.fruit_message["banana"].price
+}
+
+
 # ## variable Datatypes
 #
 # variable "data_types" {
