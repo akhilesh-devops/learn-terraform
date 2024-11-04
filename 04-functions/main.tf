@@ -32,3 +32,7 @@ variable "laptops" {
 output "hp_processor" {
   value = try(var.laptops["hp"].processor)
 }
+
+output "del_processor" {
+  value = try(var.laptops["del"].processor)
+}
