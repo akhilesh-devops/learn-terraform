@@ -1,5 +1,5 @@
 variable "test" {
-  default = "hello world"
+  default = "Hello world"
 }
 
 output "message" {
