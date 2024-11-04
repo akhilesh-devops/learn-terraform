@@ -33,8 +33,8 @@ variable "fruit_details" {
   }
 }
 
-output "fruit_price" {
-  value = var.fruit_details["Price"]
+output "fruit_details" {
+  value = "Fruit_Name = ${var.fruit_details["Fruit_name"]}, Fruit_Quantity = ${var.fruit_details["Quantity"]}, Fruit_price = ${var.fruit_details["Price"]}"
 }
 
 # ## Dictionary variable
