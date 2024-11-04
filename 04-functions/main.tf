@@ -14,24 +14,21 @@ resource "aws_instance" "instance" {
 }
 
 
-# variable "fruit_details" {
-#   default = {
-#     apple = {
-#       # price = 100
-#       stock = 10
-#     }
-#     banana = {
-#       price = 20
-#       # stock = 5
-#     }
-#   }
-# }
-#
-# output "orange_price" {
-#   value = try(var.fruit_details["orange"].price, "null")
-# }
-#
-# output "apple_price" {
-#   # value = try(var.fruit_details["apple"].price, "null")
-#   value = lookup(var.fruit_details["apple"], "price", "null")
-# }
+variable "laptops" {
+  default = {
+    hp = {
+      processor = "amd-ryzen"
+      memory    = "10G"
+      cpu       = 2
+    }
+    del = {
+      processor = "intel"
+      memory    = "5G"
+      cpu       = 5
+    }
+  }
+}
+
+output "hp_processor" {
+  value = try(var.laptops["hp"].processor)
+}
