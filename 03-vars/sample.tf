@@ -19,6 +19,10 @@ output "fruit_name-1" {
   value = var.fruits[0]
 }
 
+output "fruit_name-2" {
+  value = var.fruits[1]
+}
+
 #
 #
 # ## Map variable
