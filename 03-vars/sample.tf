@@ -63,20 +63,20 @@ output "banana_price" {
 }
 
 
-# ## variable Datatypes
-#
-# variable "data_types" {
-#   default = {
-#     fruit_name = "apple"
-#     quantity   = 100
-#     for_sale   = true
-#   }
-# }
-#
-# output "fruit_message" {
-#   value = "Fruit Name - ${var.data_types["fruit_name"]}, Quantity - ${var.data_types["quantity"]}"
-# }
-#
-# output "fruit_details_banana" {
-#   value = "Fruit Quantity = ${var.fruit_message["banana"].quantity}, Fruit Price = ${var.fruit_message["banana"].price}, Fruit status = ${var.fruit_message["banana"].for_sale}"
-# }
+## variable Datatypes
+
+variable "data_types" {
+  default = {
+    fruit_name = "apple"
+    quantity   = 100
+    for_sale   = true
+  }
+}
+
+output "fruit_message" {
+  value = "Fruit Name - ${var.data_types["fruit_name"]}, Quantity - ${var.data_types["quantity"]}"
+}
+
+output "fruit_details_banana" {
+  value = "Fruit Quantity = ${var.fruit_message["banana"].quantity}, Fruit Price = ${var.fruit_message["banana"].price}, Fruit status = ${var.fruit_message["banana"].for_sale}"
+}
