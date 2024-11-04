@@ -50,6 +50,6 @@ resource "aws_instance" "frontend" {
   }
 }
 
-output "instance" {
+output "ami" {
   value = aws_instance.frontend.ami
 }
