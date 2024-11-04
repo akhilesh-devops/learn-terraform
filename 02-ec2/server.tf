@@ -49,3 +49,7 @@ resource "aws_instance" "frontend" {
     Name = "frontend"
   }
 }
+
+output "instance" {
+  value = aws_instance.frontend
+}
