@@ -6,7 +6,7 @@ resource "aws_instance" "WebServer" {
 
   provisioner "local-exec" {
     command = <<EOF
-sudo yum install nginx -y
+yum install nginx -y
 systemctl enable nginx
 systemctl restart nginx
 EOF
