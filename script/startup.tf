@@ -11,4 +11,8 @@ systemctl enable nginx
 systemctl restart nginx
 EOF
   }
+
+  tags = {
+    Name = "test"
+  }
 }
