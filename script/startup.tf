@@ -3,10 +3,10 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
   vpc_security_group_ids = ["sg-0ad8ec6873fafd140"]
 
-  user_data = <<EOL
-  #!/bin/bash
+  user_data = <<-EOL
+  #!/bin/bash -xe
 
-  yum install nginx
+  yum install nginx -y
   systemctl restart nginx
   systemctl enable nginx
   EOL
