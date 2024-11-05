@@ -4,7 +4,7 @@ resource "aws_instance" "WebServer" {
   vpc_security_group_ids = ["sg-0ad8ec6873fafd140"]
 
 
-  provisioner "remote-exec" {
+  provisioner "local-exec" {
 
     inline = [
       "sudo yum install nginx -y",
