@@ -1,17 +1,15 @@
-resource "aws_instance" "web" {
+resource "aws_instance" "WebServer" {
   ami           = "ami-0b4f379183e5706b9"
   instance_type = "t2.micro"
   vpc_security_group_ids = ["sg-0ad8ec6873fafd140"]
 
-  user_data = <<-EOL
-  #!/bin/bash -xe
 
-  yum install nginx -y
-  systemctl restart nginx
-  systemctl enable nginx
-  EOL
+  provisioner "remote-exec" {
 
-  tags = {
-    Name = "HelloWorld"
+    inline = [
+      "sudo yum install nginx -y",
+      "sudo systemctl start nginx"
+    ]
+
   }
 }
