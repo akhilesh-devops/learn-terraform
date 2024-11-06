@@ -16,6 +16,10 @@ variable "db_subnets" {
 
 resource "aws_vpc" "main" {
   cidr_block = var.cidr
+
+  tags = {
+    Name = "dev"
+  }
 }
 
 resource "aws_subnet" "public_subnets" {
