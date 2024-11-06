@@ -51,3 +51,30 @@ resource "aws_subnet" "db_subnets" {
     Name = "db-${count.index+1}"
   }
 }
+
+resource "aws_route_table" "public_route_tables" {
+  count      = length(var.public_subnets)
+  vpc_id     = aws_vpc.main.id
+
+  tags = {
+    Name = "public-rt-${count.index+1}"
+  }
+}
+
+resource "aws_route_table" "app_route_table" {
+  count      = length(var.app_subnets)
+  vpc_id     = aws_vpc.main.id
+
+  tags = {
+    Name = "app-rt-${count.index+1}"
+  }
+}
+
+resource "aws_route_table" "db_route_table" {
+  count      = length(var.db_subnets)
+  vpc_id     = aws_vpc.main.id
+
+  tags = {
+    Name = "db-rt-${count.index+1}"
+  }
+}
