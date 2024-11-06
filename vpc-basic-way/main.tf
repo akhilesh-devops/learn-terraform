@@ -78,3 +78,21 @@ resource "aws_route_table" "db_route_table" {
     Name = "db-rt-${count.index+1}"
   }
 }
+
+resource "aws_route_table_association" "public" {
+  count      = length(var.public_subnets)
+  subnet_id      = aws_subnet.public_subnets.id
+  route_table_id = aws_route_table.public_route_tables.id
+}
+
+resource "aws_route_table_association" "app" {
+  count      = length(var.app_subnets)
+  subnet_id      = aws_subnet.app_subnets.id
+  route_table_id = aws_route_table.app_route_table.id
+}
+
+resource "aws_route_table_association" "db" {
+  count      = length(var.db_subnets)
+  subnet_id      = aws_subnet.db_subnets.id
+  route_table_id = aws_route_table.db_route_table.id
+}
