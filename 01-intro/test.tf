@@ -1,7 +1,7 @@
-variable "test" {
-  default = "Hello world"
+variable "db_name" {
+  default = "mysql"
 }
 
-output "test" {
-  value = var.test
+output "db_name" {
+  value = var.db_name
 }
