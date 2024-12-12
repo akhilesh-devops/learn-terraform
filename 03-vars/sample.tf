@@ -15,13 +15,26 @@ variable "IT_SPACE" {
   default = ["tcs", "wipro", "cognizant"]
 }
 
+# output "First_Company" {
+#   value = var.IT_SPACE[0]
+# }
+
 output "First_Company" {
-  value = var.IT_SPACE[0]
+  value = element(var.IT_SPACE, 1)
 }
 
+# output "Second_Company" {
+#   value = var.IT_SPACE[1]
+# }
+
 output "Second_Company" {
-  value = var.IT_SPACE[1]
+  value = element(var.IT_SPACE, 2)
 }
+
+
+
+
+
 
 # ## Map variable
 #
