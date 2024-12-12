@@ -13,7 +13,7 @@ resource "aws_route53_record" "frontend" {
   name    = "frontend-dev.vinithaws.online"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.frontend.id]
+  records = [aws_instance.frontend.private_ip]
 }
 
 resource "aws_instance" "mongodb" {
@@ -31,5 +31,5 @@ resource "aws_route53_record" "mongodb" {
   name    = "mongodb-dev.vinithaws.online"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.mongodb.id]
+  records = [aws_instance.mongodb.private_ip]
 }
