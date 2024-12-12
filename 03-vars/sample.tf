@@ -32,22 +32,31 @@ output "Second_Company" {
 }
 
 
+## Map variable
+
+variable "fruit_details" {
+  default = {
+    fruit_name     = "apple",
+    fruit_quantity = 100
+    for_sale       = true
+  }
+}
+
+output "fruit_msg" {
+  value = "Fruit_Name - ${var.fruit_details["fruit_name"]}, Fruit_Quantity - ${var.fruit_details["fruit_quantity"]}"
+}
 
 
 
 
-# ## Map variable
-#
-# variable "fruit_details" {
-#   default = {
-#     Fruit_name = "apple", Quantity = 100, Price = 20
-#   }
-# }
-#
-# output "fruit_details" {
-#   value = "Fruit_Name = ${var.fruit_details["Fruit_name"]}, Fruit_Quantity = ${var.fruit_details["Quantity"]}, Fruit_price = ${var.fruit_details["Price"]}"
-# }
-#
+
+
+
+
+
+
+
+
 # ## Dictionary variable
 #
 # variable "fruit_message" {
