@@ -59,5 +59,5 @@ variable "fruit_stock_with_price" {
 }
 
 output "apple_details" {
-  value = "apple price - ${var.fruit_stock_with_price["apple"].price}, apple stock - ${var.fruit_stock_with_price["apple"].stock}"
+  value = "apple price = ${var.fruit_stock_with_price["apple"].price}, apple stock = ${var.fruit_stock_with_price["apple"].stock}"
 }
