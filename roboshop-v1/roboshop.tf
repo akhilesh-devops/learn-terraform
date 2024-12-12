@@ -10,7 +10,7 @@ resource "aws_instance" "frontend" {
 
 resource "aws_route53_record" "frontend" {
   zone_id = "Z0345275C3S6UDSOR4CU"
-  name    = "frontend.akhildevops.online"
+  name    = "frontend-dev.vinithaws.online"
   type    = "A"
   ttl     = 30
   records = [aws_instance.frontend.id]
@@ -28,7 +28,7 @@ resource "aws_instance" "mongodb" {
 
 resource "aws_route53_record" "mongodb" {
   zone_id = "Z0345275C3S6UDSOR4CU"
-  name    = "frontend.akhildevops.online"
+  name    = "mongodb-dev.vinithaws.online"
   type    = "A"
   ttl     = 30
   records = [aws_instance.mongodb.id]
