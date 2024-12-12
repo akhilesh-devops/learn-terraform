@@ -16,9 +16,9 @@ variable "fruits" {
   default = ["apple", "orange"]
 }
 
-output "first_fruit" {
-  value = var.fruits[0]
-}
+# output "first_fruit" {
+#   value = var.fruits[0]
+# }
 
 output "first_fruit" {
   value = element(var.fruits, 0)
