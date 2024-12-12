@@ -48,15 +48,6 @@ output "fruit_msg" {
 
 
 
-
-
-
-
-
-
-
-
-
 # ## Dictionary variable
 #
 # variable "fruit_message" {
