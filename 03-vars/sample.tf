@@ -9,22 +9,16 @@ output "fruit_name" {
 }
 
 
-# ## List variable
-#
-# variable "fruits" {
-#   default = ["apple", "orange"]
-# }
-#
-# output "fruit_name-1" {
-#   value = var.fruits[0]
-# }
-#
-# output "fruit_name-2" {
-#   value = var.fruits[1]
-# }
-#
-#
-#
+## List variable
+
+variable "IT_SPACE" {
+  default = ["tcs", "wipro", "cognizant"]
+}
+
+output "First_Company" {
+  value = var.IT_SPACE[0]
+}
+
 # ## Map variable
 #
 # variable "fruit_details" {
