@@ -19,6 +19,10 @@ output "First_Company" {
   value = var.IT_SPACE[0]
 }
 
+output "Second_Company" {
+  value = var.IT_SPACE[1]
+}
+
 # ## Map variable
 #
 # variable "fruit_details" {
