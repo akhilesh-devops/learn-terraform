@@ -1,4 +1,5 @@
-## Simple variable
+
+## plain variable
 
 variable "fruit_name" {
   default = "apple"
@@ -11,83 +12,52 @@ output "fruit_name" {
 
 ## List variable
 
-variable "IT_SPACE" {
-  default = ["tcs", "wipro", "cognizant"]
+variable "fruits" {
+  default = ["apple", "orange"]
 }
 
-# output "First_Company" {
-#   value = var.IT_SPACE[0]
-# }
-
-output "First_Company" {
-  value = element(var.IT_SPACE, 0)
+output "first_fruit" {
+  value = var.fruits[0]
 }
 
-# output "Second_Company" {
-#   value = var.IT_SPACE[1]
-# }
-
-output "Second_Company" {
-  value = element(var.IT_SPACE, 10)
+output "first_fruit" {
+  value = element(var.fruits, 0)
 }
 
 
 ## Map variable
 
-variable "fruit_details" {
+variable "fruit_stock" {
   default = {
-    fruit_name     = "apple",
-    fruit_quantity = 100
-    for_sale       = true
+    apple  = 100
+    banana = 200
   }
 }
 
-output "fruit_msg" {
-  value = "Fruit_Name - ${var.fruit_details["fruit_name"]}, Fruit_Quantity - ${var.fruit_details["fruit_quantity"]}"
+output "apple_stock" {
+  value = var.fruit_stock["apple"]
+}
+
+output "banana_stock" {
+  value = var.fruit_stock["banana"]
 }
 
 
+## Map of Map variable
 
-# ## Dictionary variable
-#
-# variable "fruit_message" {
-#   default = {
-#     apple = {
-#       quantity = 100
-#       price = 20
-#       for_sale = true
-#     },
-#     banana = {
-#       quantity = 250
-#       price = 5
-#       for_sale = false
-#     }
-#   }
-# }
-#
-# output "apple_price" {
-#   value = var.fruit_message["apple"].price
-# }
-#
-# output "banana_price" {
-#   value = var.fruit_message["banana"].price
-# }
-#
-#
-# ## variable Datatypes
-#
-# variable "data_types" {
-#   default = {
-#     fruit_name = "apple"
-#     quantity   = 100
-#     for_sale   = true
-#   }
-# }
-#
-# output "fruit_message" {
-#   value = "Fruit Name - ${var.data_types["fruit_name"]}, Quantity - ${var.data_types["quantity"]}"
-# }
-#
-# output "fruit_details_banana" {
-#   value = "Fruit Quantity = ${var.fruit_message["banana"].quantity}, Fruit Price = ${var.fruit_message["banana"].price}, Fruit status = ${var.fruit_message["banana"].for_sale}"
-# }
+variable "fruit_stock_with_price" {
+  default = {
+    apple = {
+      price = 20
+      stock = 100
+    }
+    banana = {
+      price = 10
+      stock = 20
+    }
+  }
+}
+
+output "apple_details" {
+  value = "apple price - ${var.fruit_stock_with_price["apple"].price}, apple stock - ${var.fruit_stock_with_price["apple"].stock}"
+}
