@@ -20,7 +20,7 @@ variable "IT_SPACE" {
 # }
 
 output "First_Company" {
-  value = element(var.IT_SPACE, 1)
+  value = element(var.IT_SPACE, 0)
 }
 
 # output "Second_Company" {
@@ -28,7 +28,7 @@ output "First_Company" {
 # }
 
 output "Second_Company" {
-  value = element(var.IT_SPACE, 2)
+  value = element(var.IT_SPACE, 10)
 }
 
 
