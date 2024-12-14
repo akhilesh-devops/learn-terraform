@@ -1,5 +1,5 @@
 variable "db_name" {
-  default = "mysql"
+  default = "postgres"
 }
 
 output "db_name" {
