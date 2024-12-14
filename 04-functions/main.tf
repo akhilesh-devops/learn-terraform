@@ -43,7 +43,7 @@ output "apple_stock" {
 }
 
 output "apple_status" {
-  value = lookup(var.components["apple"], "sale")
+  value = lookup(var.components, "apple", "sale")
 }
 
 
