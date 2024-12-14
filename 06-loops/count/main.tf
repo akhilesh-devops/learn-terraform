@@ -1,13 +1,13 @@
-resource "aws_instance" "instances" {
-  count                  = length(var.components)
-  ami                    = var.ami
-  vpc_security_group_ids = var.vpc_security_group_ids
-  instance_type          = var.instance_type
-
-  tags = {
-    Name = element(var.components, count.index)
-  }
-}
+# resource "aws_instance" "instances" {
+#   count                  = length(var.components)
+#   ami                    = var.ami
+#   vpc_security_group_ids = var.vpc_security_group_ids
+#   instance_type          = var.instance_type
+#
+#   tags = {
+#     Name = element(var.components, count.index)
+#   }
+# }
 
 
 variable "components" {
