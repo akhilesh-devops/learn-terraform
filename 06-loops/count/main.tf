@@ -11,7 +11,7 @@
 
 
 variable "components" {
-  default = ["frontend", "mongodb", "catalogue", "redis", "user", "cart", "shipping"]
+  default = ["payment", "frontend", "mongodb", "catalogue", "redis", "user", "cart", "shipping"]
 }
 
 variable "ami" {
