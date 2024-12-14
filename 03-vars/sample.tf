@@ -57,3 +57,26 @@ output "banana_stock" {
 output "grapes_stock" {
   value = var.fruit_stock["grapes"]
 }
+
+#Map of Map variable
+
+variable "fruit_details" {
+  default = {
+    apple = {
+      price = 20
+      stock = 50
+    }
+    orange = {
+      price = 10
+      stock = 100
+    }
+    banana = {
+      price = 50
+      stock = 150
+    }
+    grapes = {
+      price = 60
+      stock = 100
+    }
+  }
+}
