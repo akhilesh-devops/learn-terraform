@@ -28,5 +28,5 @@ variable "instance_type" {
 
 resource "aws_security_group" "allow_tls" {
   count                  = length(var.components)
-  name                   = "allow_tls"
+  name                   = element(var.components, count.index)
 }
