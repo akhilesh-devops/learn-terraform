@@ -11,5 +11,5 @@ resource "aws_instance" "instances" {
 
 
 variable "components" {
-  default = ["frontend", "mongodb", "catalogue", "redis", "user", "cart"]
+  default = ["frontend", "mongodb", "catalogue", "redis", "user", "cart", "shipping"]
 }
