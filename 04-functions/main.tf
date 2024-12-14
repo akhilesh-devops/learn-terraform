@@ -42,7 +42,9 @@ output "apple_stock" {
   value = try(var.fruits["apple"].stock)
 }
 
-
+output "apple_status" {
+  value = lookup(var.components["apple"], "sale")
+}
 
 
 
