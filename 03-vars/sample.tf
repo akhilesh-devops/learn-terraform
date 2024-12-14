@@ -81,18 +81,49 @@ variable "fruit_details" {
   }
 }
 
-output "apple_price" {
-  value = var.fruit_details["apple"].price
+# output "apple_price" {
+#   value = var.fruit_details["apple"].price
+# }
+#
+# output "orange_price" {
+#   value = var.fruit_details["orange"].price
+# }
+#
+# output "banana_price" {
+#   value = var.fruit_details["banana"].price
+# }
+#
+# output "grapes_price" {
+#   value = var.fruit_details["grapes"].price
+# }
+
+## Access variable in combination of string with ${}
+
+variable "fruit_invoice" {
+  default = {
+    apple = {
+      price = 100
+      stock = 50
+      sale  = true
+    }
+    banana = {
+      price = 60
+      stock = 30
+      sale  = false
+    }
+    orange = {
+      price = 40
+      stock = 20
+      sale  = true
+    }
+    grapes = {
+      price = 90
+      stock = 80
+      sale  = false
+    }
+  }
 }
 
-output "orange_price" {
-  value = var.fruit_details["orange"].price
-}
-
-output "banana_price" {
-  value = var.fruit_details["banana"].price
-}
-
-output "grapes_price" {
-  value = var.fruit_details["grapes"].price
+output "fruit_1_invoice" {
+  value = "Fruit Name - ${element(var.fruit_invoice, 0)}, Fruit Price - ${var.fruit_invoice["apple"].price}, Fruit stock - ${var.fruit_invoice["apple"].stock}, Fruit sale - ${var.fruit_invoice["apple"].sale}"
 }
