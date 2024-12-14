@@ -15,17 +15,17 @@ variable "fruits" {
 }
 
 output "fruit_1" {
-  value = var.fruits[0]
+  value = element(var.fruits, 0)
 }
 
 output "fruit_2" {
-  value = var.fruits[1]
+  value = element(var.fruits, 1)
 }
 
 output "fruit_3" {
-  value = var.fruits[2]
+  value = element(var.fruits, 2)
 }
 
 output "fruit_4" {
-  value = var.fruits[3]
+  value = element(var.fruits, 3)
 }
