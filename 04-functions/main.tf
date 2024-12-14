@@ -39,24 +39,9 @@ variable "fruits" {
 }
 
 output "apple_stock" {
-  # value = try(var.fruits["apple"].stock)
-  value = lookup(var.fruits["apple"], "stock")
+  value = try(var.fruits["apple"].stock)
 }
 
-
-
-
-
-# output "hp_processor" {
-#   # value = try(var.laptops["hp"].processor)
-#   value = lookup(var.laptops["hp"], "processor")
-# }
-#
-# output "del_processor" {
-#   # value = try(var.laptops["del"].processor)
-#   value = lookup(var.laptops["del"], "processor")
-# }
-#
-# output "laptop_message" {
-#   value      = "hp_processor = ${var.laptops["hp"].processor}, del_processor = ${var.laptops["del"].processor}"
-# }
+output "orange_stock" {
+  value = lookup(var.fruits, "orange", "stock")
+}
