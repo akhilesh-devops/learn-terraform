@@ -45,3 +45,7 @@ output "apple_stock" {
 output "orange_stock" {
   value = lookup(var.fruits["orange"], "stock")
 }
+
+output "grapes_stock" {
+  value = try(var.fruits["grapes"].stock)
+}
