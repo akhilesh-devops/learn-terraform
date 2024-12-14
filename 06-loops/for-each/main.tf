@@ -19,7 +19,3 @@ variable "components" {
   }
 }
 
-resource "aws_security_group" "allow-all" {
-  for_each = var.components
-  name     = lookup(each.value, "name", null)
-}
