@@ -129,5 +129,5 @@ variable "fruit_invoice" {
 # }
 
 output "fruit_name_1" {
-  value = lookup(var.fruit_invoice, "each.key", null)
+  value = lookup(var.fruit_invoice, "each.key[0]", null)
 }
