@@ -1,27 +1,3 @@
-resource "aws_instance" "instances" {
-  for_each               = var.components
-  ami                    = var.ami
-  vpc_security_group_ids = var.vpc_security_group_ids
-  instance_type          = lookup(each.value, "machine_type", null)
-
-  tags = {
-    Name = lookup(each.value, "name", null)
-  }
-}
-
-
-resource "aws_route53_record" "frontend" {
-  for_each   = var.components
-  zone_id    = var.zone_id
-  name       = "${lookup(each.value, "name", null)}.akhildevops.online"
-  type       = "A"
-  ttl        = 30
-  records    = [lookup(lookup(aws_instance.instances, each.key, null), "private_ip", null)]
-}
-
-
-
-
 variable "ami" {
   default = "ami-0b4f379183e5706b9"
 }
@@ -49,5 +25,17 @@ variable "components" {
     shipping = { name = "shipping-dev", machine_type = "t2.micro" }
     rabbitmq = { name = "rabbitmq-dev", machine_type = "t2.micro" }
     payment = { name = "payment-dev", machine_type = "t2.micro" }
+  }
+}
+
+
+resource "aws_instance" "instances" {
+  for_each               = var.components
+  instance_type          = each.value["machine_type"]
+  ami                    = var.ami
+  vpc_security_group_ids = var.vpc_security_group_ids
+
+  tags = {
+    Name = lookup(each.value, "name", null)
   }
 }
