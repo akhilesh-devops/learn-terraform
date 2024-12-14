@@ -5,5 +5,5 @@ data "aws_ami" "ami" {
 }
 
 output "ami" {
-  value = data.aws_ami.ami.creation_date
+  value = data.aws_ami.ami.id
 }
