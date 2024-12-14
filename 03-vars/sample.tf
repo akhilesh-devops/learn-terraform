@@ -125,5 +125,5 @@ variable "fruit_invoice" {
 }
 
 output "fruit_1_invoice" {
-  value = "Fruit Name - ${lookup(var.fruit_invoice, "apple", null)}, Fruit Price - ${var.fruit_invoice["apple"].price}, Fruit stock - ${var.fruit_invoice["apple"].stock}, Fruit sale - ${var.fruit_invoice["apple"].sale}"
+  value = "Fruit Name - ${lookup(var.fruit_invoice, each.key[0], null)}, Fruit Price - ${var.fruit_invoice["apple"].price}, Fruit stock - ${var.fruit_invoice["apple"].stock}, Fruit sale - ${var.fruit_invoice["apple"].sale}"
 }
