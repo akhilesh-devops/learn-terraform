@@ -25,3 +25,8 @@ variable "vpc_security_group_ids" {
 variable "instance_type" {
   default = "t2.micro"
 }
+
+resource "aws_security_group" "allow_tls" {
+  count                  = length(var.components)
+  name                   = "allow_tls"
+}
