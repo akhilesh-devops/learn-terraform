@@ -39,7 +39,8 @@ variable "fruits" {
 }
 
 output "apple_stock" {
-  value = try(var.fruits["apple"].stock)
+  # value = try(var.fruits["apple"].stock)
+  value = lookup(var.components["apple"], "stock")
 }
 
 
