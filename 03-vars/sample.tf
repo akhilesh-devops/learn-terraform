@@ -42,23 +42,23 @@ variable "fruit_stock" {
   }
 }
 
-output "apple_stock" {
-  value = var.fruit_stock["apple"]
-}
+# output "apple_stock" {
+#   value = var.fruit_stock["apple"]
+# }
+#
+# output "orange_stock" {
+#   value = var.fruit_stock["orange"]
+# }
+#
+# output "banana_stock" {
+#   value = var.fruit_stock["banana"]
+# }
+#
+# output "grapes_stock" {
+#   value = var.fruit_stock["grapes"]
+# }
 
-output "orange_stock" {
-  value = var.fruit_stock["orange"]
-}
-
-output "banana_stock" {
-  value = var.fruit_stock["banana"]
-}
-
-output "grapes_stock" {
-  value = var.fruit_stock["grapes"]
-}
-
-#Map of Map variable
+##Map of Map variable
 
 variable "fruit_details" {
   default = {
@@ -79,4 +79,20 @@ variable "fruit_details" {
       stock = 100
     }
   }
+}
+
+output "apple_price" {
+  value = var.fruit_details["apple"].price
+}
+
+output "orange_price" {
+  value = var.fruit_details["orange"].price
+}
+
+output "banana_price" {
+  value = var.fruit_details["banana"].price
+}
+
+output "grapes_price" {
+  value = var.fruit_details["grapes"].price
 }
