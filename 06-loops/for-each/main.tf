@@ -1,5 +1,9 @@
 variable "components" {
   default = {
+    payment = {
+      name          = "payment-dev"
+      instance_type = "t2.micro"
+    }
     frontend = {
       name          = "frontend-dev"
       instance_type = "t2.micro"
