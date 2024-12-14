@@ -53,3 +53,7 @@ output "grapes_stock" {
 output "banana_stock" {
   value = lookup(var.fruits["banana"], "stock")
 }
+
+output "fruit_stock" {
+  value = "Apple stock - ${lookup(var.fruits["apple"], "stock")}, Orange stock - ${lookup(var.fruits["orange"], "stock")}"
+}
